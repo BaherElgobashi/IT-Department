@@ -20,7 +20,7 @@ namespace IT.DAL.Repositories.Classes
         }
         public async Task<Device?> GetDeviceById(string id)
         {
-            var Device = await _dbContext.Devices.FindAsync(id);
+            var Device = await _dbContext.Devices.Include(d=>d.DeviceCategory).FirstOrDefaultAsync(d => d.Id ==id);
             if (Device is null)
                 return null;
             return Device;
@@ -28,7 +28,7 @@ namespace IT.DAL.Repositories.Classes
 
         public async Task<IEnumerable<Device>> GetDevicesAsync()
         {
-            var Devices = await _dbContext.Devices.ToListAsync();
+            var Devices = await _dbContext.Devices.Include(d =>d.DeviceCategory).ToListAsync();
             return Devices;
         }
         public async Task addDevice(Device device)
