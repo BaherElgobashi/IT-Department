@@ -1,5 +1,5 @@
 <Solution>
-  <Project Path="IT Department/IT Department.csproj" />
+  <Project Path="IT Department/IT.PL.csproj" />
   <Project Path="IT.BLL/IT.BLL.csproj" />
   <Project Path="IT.DAL/IT.DAL.csproj" />
 </Solution>
