@@ -1,3 +1,4 @@
 <Solution>
   <Project Path="IT Department/IT Department.csproj" />
+  <Project Path="IT.DAL/IT.DAL.csproj" />
 </Solution>
