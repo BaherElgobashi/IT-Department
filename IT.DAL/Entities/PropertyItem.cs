@@ -10,6 +10,10 @@ namespace IT.DAL.Entities
     {
         public int Id { get; set; }
         public string Name { get; set; } = default!;
-        
+        public virtual ICollection<CategoryProperty> CategoryProperties { get; set; }
+
+       
+        public virtual ICollection<DevicePropertyValue> DevicePropertyValues { get; set; }
+
     }
 }
