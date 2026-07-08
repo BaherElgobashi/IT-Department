@@ -1,3 +1,6 @@
+using IT.DAL.Data;
+using Microsoft.EntityFrameworkCore;
+
 namespace IT_Department
 {
     public class Program
@@ -8,6 +11,11 @@ namespace IT_Department
 
             // Add services to the container.
             builder.Services.AddControllersWithViews();
+
+            builder.Services.AddDbContext<ApplicationDbContext>(options =>
+            {
+                options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"));
+            });
 
             var app = builder.Build();
 
