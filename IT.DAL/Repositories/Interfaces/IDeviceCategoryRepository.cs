@@ -13,7 +13,7 @@ namespace IT.DAL.Repositories.Interfaces
 
         Task<DeviceCategory> GetDeviceCategotyById(int id);
         Task Add(DeviceCategory deviceCategory);
-        void Update(DeviceCategory deviceCategory);
-        Task Delete(DeviceCategory deviceCategory);
+        Task Update(DeviceCategory deviceCategory);
+        Task Delete(int id);
     }
 }
