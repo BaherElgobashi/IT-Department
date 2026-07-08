@@ -16,6 +16,7 @@ namespace IT.DAL.Entities
 
         public int DeviceCategoryId { get; set; }
         public virtual DeviceCategory DeviceCategory { get; set; }
+        public ICollection<DevicePropertyValue> DevicePropertyValues { get; set; }
 
     }
 }

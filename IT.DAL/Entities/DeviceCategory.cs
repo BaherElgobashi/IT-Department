@@ -13,5 +13,8 @@ namespace IT.DAL.Entities
 
         public ICollection<Device> Devices { get; set; }
 
+        public ICollection<CategoryProperty> CategoryProperties { get; set; }
+        
+
     }
 }

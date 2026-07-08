@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using IT.DAL.Entities;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,5 +14,11 @@ namespace IT.DAL.Data
         {
             
         }
+
+        public DbSet<Device> Devices { get; set; }
+        public DbSet<CategoryProperty> CategoryProperties { get; set; }
+        public DbSet<DeviceCategory> DeviceCategories { get; set; }
+        public DbSet<DevicePropertyValue> DevicePropertyValues { get; set; }
+        public DbSet<PropertyItem> PropertyItems { get; set; }
     }
 }

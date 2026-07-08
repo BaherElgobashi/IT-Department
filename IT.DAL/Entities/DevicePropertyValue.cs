@@ -9,6 +9,7 @@ namespace IT.DAL.Entities
     public class DevicePropertyValue
     {
         public int Id { get; set; }
+        public string Value { get; set; }
 
         public string DeviceId { get; set; }
         public virtual Device Device { get; set; }
@@ -16,6 +17,6 @@ namespace IT.DAL.Entities
         public int PropertyItemId { get; set; }
         public virtual PropertyItem PropertyItem { get; set; }
 
-        public string Value { get; set; }
+       
     }
 }
