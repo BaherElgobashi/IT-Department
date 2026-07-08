@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace IT.DAL.Entities
 {
-    public class ProperyItem
+    public class PropertyItem
     {
         public int Id { get; set; }
         public string Name { get; set; } = default!;
