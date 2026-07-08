@@ -11,5 +11,7 @@ namespace IT.DAL.Entities
         public int Id { get; set; }
         public string Name { get; set; } = default!;
 
+        public ICollection<Device> Devices { get; set; }
+
     }
 }
