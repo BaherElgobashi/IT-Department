@@ -1,4 +1,6 @@
-﻿using System;
+﻿using IT.BLL.ViewModels;
+using IT.DAL.Entities;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,5 +10,13 @@ namespace IT.BLL.Services.Interaces
 {
     public interface IDeviceService
     {
+        Task<IEnumerable<Device>> GetAllDevicesAsync();
+        Task<DeviceViewModel> GetDeviceByIdAsync(string id);
+        Task AddAsync(Device device);
+        Task updateAsync(Device device);
+        Task DeleteAsync(int id);
+        Task<IEnumerable<PropertyItem>> GetPropertiesByCategoryIdAsync(int categoryId);
+        Task<IEnumerable<DeviceCategory>> GetCategories();
+
     }
 }
