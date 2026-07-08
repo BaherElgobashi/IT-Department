@@ -9,8 +9,8 @@ namespace IT.DAL.Repositories.Interfaces
 {
     public interface ICategoryPropertyRepository
     {
-        Task<List<CategoryProperty>> GetAllAsync();
-        Task<List<PropertyItem>> GetPropertiesByCategoryIdAsync(int categoryId);
+        Task<IEnumerable<CategoryProperty>> GetAllAsync();
+        Task<IEnumerable<PropertyItem>> GetPropertiesByCategoryIdAsync(int categoryId);
         Task AddAsync(CategoryProperty categoryProperty);
         Task DeleteAsync(int categoryId, int propertyItemId);
     }
