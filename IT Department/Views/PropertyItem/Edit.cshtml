@@ -1,0 +1,13 @@
+﻿@model LG_Task.BL.Models.PropertyItem
+
+<h2>Edit Property</h2>
+
+<form asp-action="Edit" method="post">
+    <input type="hidden" asp-for="Id" />
+    <div class="form-group">
+        <label asp-for="Description"></label>
+        <input asp-for="Description" class="form-control" />
+        <span asp-validation-for="Description" class="text-danger"></span>
+    </div>
+    <button type="submit" class="btn btn-primary mt-2">Update</button>
+</form>
