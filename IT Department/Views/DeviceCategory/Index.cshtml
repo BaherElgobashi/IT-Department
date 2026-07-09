@@ -1,0 +1,37 @@
+﻿@model List<IT.DAL.Entities.DeviceCategory>
+
+<h2>Device Categories</h2>
+
+<a class="btn btn-primary mb-3" asp-action="Create">+ Add New Category</a>
+
+<table class="table table-bordered table-striped">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Properties</th>
+            <th style="width: 200px;">Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var c in Model)
+        {
+            <tr>
+                <td>@c.Name</td>
+                <td>
+                    @if (c.CategoryProperties != null && c.CategoryProperties.Any())
+                    {
+                        @string.Join(", ", c.CategoryProperties.Select(p => p.PropertyItem?.Description))
+                    }
+                    else
+                    {
+                        <em>No properties</em>
+                    }
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@c.Id" class="btn btn-sm btn-warning">Edit</a>
+                    <a asp-action="Delete" asp-route-id="@c.Id" class="btn btn-sm btn-danger">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
