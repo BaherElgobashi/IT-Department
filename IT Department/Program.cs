@@ -1,3 +1,5 @@
+using IT.BLL.Services.Classes;
+using IT.BLL.Services.Interaces;
 using IT.DAL.Data;
 using IT.DAL.Repositories.Classes;
 using IT.DAL.Repositories.Interfaces;
@@ -23,6 +25,7 @@ namespace IT_Department
             builder.Services.AddScoped<IDeviceCategoryRepository , DeviceCategoryRepository>();
             builder.Services.AddScoped<ICategoryPropertyRepository, CategoryPropertyRepository>();
             builder.Services.AddScoped<IDevicePropertyValueRepository , DevicePropertyValueRepository>();
+            builder.Services.AddScoped<IDeviceService , DeviceService>();
 
             var app = builder.Build();
 
