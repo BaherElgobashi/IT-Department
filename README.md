@@ -211,7 +211,7 @@ IT.DAL
 **Baher Mohamed Zakaria Elgobashi**
 
 - GitHub: https://github.com/BaherElgobashi
-- LinkedIn: *(Add your LinkedIn profile)*
+- LinkedIn: https://www.linkedin.com/in/baher-elgobashi-1975a5298
 
 ---
 
