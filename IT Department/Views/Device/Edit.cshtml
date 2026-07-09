@@ -1,0 +1,52 @@
+﻿@model LG_Task.BL.ViewModels.DeviceViewModel
+
+@{
+    var categories = ViewBag.Categories as List<LG_Task.BL.Models.DeviceCategory>;
+    var deviceId = ViewBag.DeviceId;
+}
+
+<h2>Edit Device</h2>
+
+<form asp-action="Edit" asp-route-id="@deviceId" method="post">
+    <input type="hidden" asp-for="Id" />
+
+    <div class="form-group">
+        <label asp-for="Name"></label>
+        <input asp-for="Name" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label asp-for="AcquisitionDate"></label>
+        <input asp-for="AcquisitionDate" type="date" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Memo"></label>
+        <textarea asp-for="Memo" class="form-control"></textarea>
+    </div>
+
+    <div class="form-group">
+        <label>Category</label>
+        <select asp-for="DeviceCategoryId" class="form-control">
+            @foreach (var c in categories)
+            {
+                <option value="@c.Id" selected="@(Model.DeviceCategoryId == c.Id ? "selected" : null)">
+                    @c.Name
+                </option>
+            }
+        </select>
+
+    </div>
+
+    <div id="dynamicProperties">
+        @foreach (var item in Model.PropertyValues)
+        {
+            <div class="form-group">
+                <label>@item.Key</label>
+                <input name="PropertyValues[@item.Key]" value="@item.Value" class="form-control" />
+            </div>
+        }
+    </div>
+
+    <button type="submit" class="btn btn-primary mt-2">Update Device</button>
+</form>

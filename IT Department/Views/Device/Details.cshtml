@@ -1,0 +1,30 @@
+﻿@model LG_Task.BL.ViewModels.DeviceViewModel
+
+<h2>Device Details</h2>
+
+<div class="card p-3">
+    <h4><strong>Name:</strong> @Model.Name</h4>
+    <p><strong>Acquisition Date:</strong> @Model.AcquisitionDate.ToShortDateString()</p>
+    <p><strong>Memo:</strong> @Model.Memo</p>
+
+    <h5 class="mt-4">Properties</h5>
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>Property</th>
+                <th>Value</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var prop in Model.DisplayPropertyValues)
+            {
+                <tr>
+                    <td>@prop.Key</td>
+                    <td>@prop.Value</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+    <a asp-action="Index" class="btn btn-secondary">Back to List</a>
+</div>
