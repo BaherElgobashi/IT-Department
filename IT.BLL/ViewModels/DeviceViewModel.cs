@@ -26,6 +26,6 @@ namespace IT.BLL.ViewModels
         public Dictionary<int, string> PropertyValues { get; set; } = new();
 
         // Read.
-        public Dictionary<int, string> DisplayPropertyValues { get; set; } = new();
+        public Dictionary<string, string> DisplayPropertyValues { get; set; } = new();
     }
 }

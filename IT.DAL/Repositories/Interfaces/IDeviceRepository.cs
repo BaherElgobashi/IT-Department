@@ -13,7 +13,7 @@ namespace IT.DAL.Repositories.Interfaces
         Task<Device?> GetDeviceById(string id);
 
         Task addDevice(Device device);
-        void updateDevice(Device device);
+        Task updateDevice(Device device);
         Task deleteDevice(string id);
     }
 }

@@ -9,7 +9,7 @@ namespace IT.DAL.Entities
     public class PropertyItem
     {
         public int Id { get; set; }
-        public string Name { get; set; } = default!;
+        public string Description { get; set; } = default!;
         public virtual ICollection<CategoryProperty> CategoryProperties { get; set; }
 
        

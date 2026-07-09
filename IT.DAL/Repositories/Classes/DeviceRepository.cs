@@ -41,10 +41,10 @@ namespace IT.DAL.Repositories.Classes
 
         
 
-        public void  updateDevice(Device device)
+        public async Task  updateDevice(Device device)
         {
-             _dbContext.Devices.Update(device);
-             _dbContext.SaveChanges();
+              _dbContext.Devices.Update(device);
+            await _dbContext.SaveChangesAsync();
         }
 
         public async Task deleteDevice(string id)

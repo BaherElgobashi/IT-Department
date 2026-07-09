@@ -12,9 +12,9 @@ namespace IT.BLL.Services.Interaces
     {
         Task<IEnumerable<Device>> GetAllDevicesAsync();
         Task<DeviceViewModel> GetDeviceByIdAsync(string id);
-        Task AddAsync(Device device);
-        Task updateAsync(Device device);
-        Task DeleteAsync(int id);
+        Task AddAsync(DeviceViewModel model);
+        Task updateAsync(DeviceViewModel model);
+        Task DeleteAsync(string id);
         Task<IEnumerable<PropertyItem>> GetPropertiesByCategoryIdAsync(int categoryId);
         Task<IEnumerable<DeviceCategory>> GetCategories();
 

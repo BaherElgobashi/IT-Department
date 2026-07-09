@@ -1,4 +1,6 @@
 using IT.DAL.Data;
+using IT.DAL.Repositories.Classes;
+using IT.DAL.Repositories.Interfaces;
 using Microsoft.EntityFrameworkCore;
 
 namespace IT_Department
@@ -16,6 +18,11 @@ namespace IT_Department
             {
                 options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"));
             });
+
+            builder.Services.AddScoped<IDeviceRepository , DeviceRepository>();
+            builder.Services.AddScoped<IDeviceCategoryRepository , DeviceCategoryRepository>();
+            builder.Services.AddScoped<ICategoryPropertyRepository, CategoryPropertyRepository>();
+            builder.Services.AddScoped<IDevicePropertyValueRepository , DevicePropertyValueRepository>();
 
             var app = builder.Build();
 
