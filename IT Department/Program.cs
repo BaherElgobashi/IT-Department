@@ -25,6 +25,7 @@ namespace IT_Department
             builder.Services.AddScoped<IDeviceCategoryRepository , DeviceCategoryRepository>();
             builder.Services.AddScoped<ICategoryPropertyRepository, CategoryPropertyRepository>();
             builder.Services.AddScoped<IDevicePropertyValueRepository , DevicePropertyValueRepository>();
+            builder.Services.AddScoped<IPropertyItemRepository, PropertyItemRepository>();  
             builder.Services.AddScoped<IDeviceService , DeviceService>();
 
             var app = builder.Build();
