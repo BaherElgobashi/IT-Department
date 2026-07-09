@@ -1,7 +1,9 @@
 ﻿using IT.BLL.ViewModels;
 using IT.DAL.Entities;
 using IT.DAL.Repositories.Interfaces;
+using Microsoft.AspNetCore.Http.Features;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore.Metadata.Internal;
 
 namespace IT_Department.Controllers
 {
@@ -67,7 +69,7 @@ namespace IT_Department.Controllers
             
 
             return View(
-                new PropertyItemViewModel
+                new PropertyItem
                 {
                     Id = property.Id,
                     Description = property.Description
@@ -79,9 +81,55 @@ namespace IT_Department.Controllers
 
         }
 
+        [HttpPost]
+        public async Task<IActionResult> Edit(PropertyItem item)
+        {
+            if(!ModelState.IsValid)
+            {
+                return View(item);
+            }
+
+            await _propertyItemRepository.Update(item);
+
+            return RedirectToAction(nameof(Index));
+        }
+
 
 
 
         #endregion
+
+        #region Delete.
+
+        [HttpGet]
+
+        public async Task<IActionResult> Delete(int id)
+        {
+            var item = await _propertyItemRepository.GetPropertyItemAsync(id);
+
+            if(item is null)
+            {
+                return NotFound();
+            }
+
+            return View(item);
+        }
+
+        [HttpPost , ActionName("Delete")]
+
+        public async Task<IActionResult> DeleteConfirmed(int id)
+        {
+            await _propertyItemRepository.Delete(id);
+            return RedirectToAction(nameof(Index));
+        }
+
+
+
+
+
+
+        #endregion
+
+
     }
 }

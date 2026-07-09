@@ -68,5 +68,62 @@ namespace IT_Department.Controllers
 
 
         #endregion
+
+
+        #region Edit.
+
+        [HttpGet]
+
+        public async Task<IActionResult> Edit(int id)
+        {
+            var category = await _deviceCategoryRepository.GetDeviceCategotyById(id);
+            if (category == null) return NotFound();
+
+            var allProps = (await _propertyItemRepository.GetAllPropertyItemAsync()).ToList();
+            var selectedProps = await _categoryPropertyRepository.GetPropertiesByCategoryIdAsync(id);
+
+            var viewModel = new DeviceCategoryViewModel
+            {
+                Name = category.Name,
+                AllProperties  = allProps,
+                SelectedPropertyIds = selectedProps.Select(p => p.Id).ToList()
+            };
+
+            ViewBag.CategoryId = id;
+            return View(viewModel);
+        }
+
+
+        #endregion
+
+        #region Delete.
+
+        [HttpGet]
+        public async Task<IActionResult> Delete(int id)
+        {
+            var category = await _deviceCategoryRepository.GetDeviceCategotyById(id);
+            if (category == null) return NotFound();
+
+            return View(category);
+        }
+
+        [HttpPost, ActionName("Delete")]
+        public async Task<IActionResult> DeleteConfirmed(int id)
+        {
+            await _deviceCategoryRepository.Delete(id);
+            return RedirectToAction(nameof(Index));
+        }
+
+
+
+
+
+        #endregion
+
+
+
+
+
+
     }
 }
