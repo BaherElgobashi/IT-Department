@@ -1,0 +1,37 @@
+﻿@model List<IT.DAL.Entities.Device>
+
+@{
+    ViewBag.Title = "All Devices";
+}
+
+<h2>Devices List</h2>
+
+<a class="btn btn-success mb-3" asp-action="Create">+ Add New Device</a>
+
+<table class="table table-bordered table-striped">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Category</th>
+            <th>Date</th>
+            <th>Memo</th>
+            <th style="width: 200px;">Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var d in Model)
+        {
+            <tr>
+                <td>@d.DeviceName</td>
+                <td>@d.DeviceCategory?.Name</td>
+                <td>@d.AcquisitionDate.ToShortDateString()</td>
+                <td>@d.Memo</td>
+                <td>
+                    <a asp-action="Details" asp-route-id="@d.Id" class="btn btn-sm btn-info">Details</a>
+                    <a asp-action="Edit" asp-route-id="@d.Id" class="btn btn-sm btn-warning">Edit</a>
+                    <a asp-action="Delete" asp-route-id="@d.Id" class="btn btn-sm btn-danger">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
